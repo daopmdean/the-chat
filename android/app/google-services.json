@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "236543631759",
+    "project_id": "the-chat-c0f46",
+    "storage_bucket": "the-chat-c0f46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236543631759:android:6c7b5937b2e63c2658ebfa",
+        "android_client_info": {
+          "package_name": "com.phamminhdao.the_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236543631759-nrnbfoctuiuldtktde8k2p1cs93c661r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVHVaYxi5wQOnIAXF3Zc2MFZkMO7g5anM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236543631759-nrnbfoctuiuldtktde8k2p1cs93c661r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
