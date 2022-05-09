@@ -12,6 +12,7 @@ class AuthForm extends StatefulWidget {
     String username,
     String password,
     bool isLogin,
+    BuildContext context,
   ) submitFn;
 
   @override
@@ -34,17 +35,17 @@ class _AuthFormState extends State<AuthForm> {
     }
 
     _formKey.currentState!.save();
-    widget.submitFn(_userEmail, _userName, _userPassword, _isLogin);
+    widget.submitFn(_userEmail, _userName, _userPassword, _isLogin, context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: _formKey,
               child: Column(
