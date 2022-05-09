@@ -5,16 +5,26 @@ const invalidUsername = 'Please enter at least 4 characters';
 const invalidPassword = 'Password must be at least 7 characters long.';
 
 class AuthForm extends StatefulWidget {
+  AuthForm(this.submitFn);
+
+  final void Function(
+    String email,
+    String username,
+    String password,
+    bool isLogin,
+  ) submitFn;
+
   @override
   _AuthFormState createState() => _AuthFormState();
 }
 
 class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
-  var _isLogin = true;
+
   var _userEmail = '';
   var _userName = '';
   var _userPassword = '';
+  var _isLogin = true;
 
   void _trySubmit() {
     final isValid = _formKey.currentState!.validate();
@@ -24,9 +34,7 @@ class _AuthFormState extends State<AuthForm> {
     }
 
     _formKey.currentState!.save();
-    print(_userEmail);
-    print(_userName);
-    print(_userPassword);
+    widget.submitFn(_userEmail, _userName, _userPassword, _isLogin);
   }
 
   @override
