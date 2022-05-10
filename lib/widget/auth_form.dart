@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_chat/widget/user_image_picker.dart';
 
 const invalidEmailAddress = 'Please enter a valid email address.';
 const invalidUsername = 'Please enter at least 4 characters';
@@ -52,6 +53,7 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  UserImagePicker(),
                   TextFormField(
                     key: const ValueKey('email'),
                     validator: (value) {
