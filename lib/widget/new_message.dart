@@ -8,15 +8,18 @@ class NewMessage extends StatefulWidget {
 }
 
 class _NewMessageState extends State<NewMessage> {
-  final user = FirebaseAuth.instance.currentUser;
+  final _user = FirebaseAuth.instance.currentUser;
+  final _firestore = FirebaseFirestore.instance;
   final _controller = TextEditingController();
 
-  void _sendMessage() {
+  void _sendMessage() async {
     FocusScope.of(context).unfocus();
-    FirebaseFirestore.instance.collection('messages').add({
+    final userData = await _firestore.collection('users').doc(_user!.uid).get();
+    await _firestore.collection('messages').add({
       'text': _controller.text,
       'createAt': Timestamp.now(),
-      'uid': user!.uid,
+      'uid': _user!.uid,
+      'username': userData['username'],
     });
     _controller.clear();
   }
