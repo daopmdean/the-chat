@@ -26,12 +26,21 @@ class Messages extends StatelessWidget {
         return ListView.builder(
           reverse: true,
           itemCount: docs.length,
-          itemBuilder: (ctx, i) => MessageBubble(
-            docs[i]['text'],
-            docs[i]['uid'] == user!.uid,
-            docs[i]['username'],
-            key: ValueKey(docs[i].id),
-          ),
+          itemBuilder: (ctx, i) {
+            final data = docs[i].data() as Map<String, dynamic>;
+            var nullImage = true;
+            if (data.containsKey('user_image')) {
+              nullImage = false;
+            }
+
+            return MessageBubble(
+              data['text'],
+              data['uid'] == user!.uid,
+              data['username'],
+              key: ValueKey(docs[i].id),
+              image: nullImage ? null : data['user_image'],
+            );
+          },
         );
       },
     );
