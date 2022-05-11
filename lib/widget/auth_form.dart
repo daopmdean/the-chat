@@ -76,6 +76,8 @@ class _AuthFormState extends State<AuthForm> {
                   if (!_isLogin) UserImagePicker(pickImage),
                   TextFormField(
                     key: const ValueKey('email'),
+                    autocorrect: false,
+                    enableSuggestions: false,
                     validator: (value) {
                       if (value == null) {
                         return invalidEmailAddress;
